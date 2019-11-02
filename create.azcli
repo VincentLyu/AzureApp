@@ -1,0 +1,3 @@
+az group create --name e2api --location "China East2"
+az appservice plan create --name e2AppServicePlan --resource-group e2api --sku FREE
+az webapp create --resource-group e2api --plan e2AppServicePlan --name e2api --deployment-local-git
