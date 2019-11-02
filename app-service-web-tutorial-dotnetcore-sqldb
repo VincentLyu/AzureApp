@@ -1,0 +1,15 @@
+https://docs.azure.cn/zh-cn/app-service/app-service-web-tutorial-dotnetcore-sqldb
+
+git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
+cd dotnetcore-sqldb-tutorial
+
+dotnet restore
+dotnet ef database update
+dotnet run
+
+az group create --name e2appsql --location "China East2"
+az sql server create --name e2appsql --resource-group e2appsql --location "China East2" --admin-user azure --admin-password Azure123456!
+az sql server firewall-rule create --resource-group e2appsql --server e2appsql --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql db create --resource-group e2appsql --server e2appsql --name coreDB --service-objective S0
+
+Server=tcp:e2appsql.database.chinacloudapi.cn,1433;Database=coreDB;User ID=azure;Password=Azure123456!;Encrypt=true;Connection Timeout=30;
