@@ -1,3 +1,11 @@
 az group create --name e2api --location "China East2"
 az appservice plan create --name e2AppServicePlan --resource-group e2api --sku FREE
 az webapp create --resource-group e2api --plan e2AppServicePlan --name e2api --deployment-local-git
+
+
+###############
+Display name: welv-backend-app
+Application (client) ID: a0df6ab3-f905-40b4-885a-4b98da5e314d
+Directory (tenant) ID: 954ddad8-66d7-47a8-8f9f-1316152d9587
+Object ID: cfd795c3-659b-446e-9c25-c6c809a168b6
+###############
