@@ -1,0 +1,13 @@
+https://docs.azure.cn/zh-cn/app-service/app-service-web-tutorial-php-mysql
+
+az appservice plan create --name e2appmysql --resource-group e2appmysql --sku FREE
+az webapp create --resource-group e2appmysql --plan e2appmysql --name e2appmysql --runtime "PHP|7.2" --deployment-local-git
+az webapp config appsettings set --name e2appmysql --resource-group e2appmysql --settings DB_HOST="e2appmysql.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@e2appmysql" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="false"
+
+az webapp config appsettings set --name e2appmysql --resource-group e2appmysql --settings APP_KEY="base64:UOjSqJ6r2aJti81pD5LhSwxjp4zPiAU1kgAad5jVBfk=" APP_DEBUG="true"
+
+az resource update --name web --resource-group e2appmysql --namespace Microsoft.Web --resource-type config --parent sites/e2appmysql --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
+
+
+git remote add azure https://e2appmysql.scm.chinacloudsites.cn:443/e2appmysql.git
+git push azure master
