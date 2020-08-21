@@ -1,0 +1,54 @@
+azureuser@e2client:~$ ab -n 5000000 -c 1000 http://172.17.1.4/
+This is ApacheBench, Version 2.3 <$Revision: 1706008 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 172.17.1.4 (be patient)
+Completed 500000 requests
+Completed 1000000 requests
+Completed 1500000 requests
+Completed 2000000 requests
+Completed 2500000 requests
+Completed 3000000 requests
+Completed 3500000 requests
+Completed 4000000 requests
+Completed 4500000 requests
+Completed 5000000 requests
+Finished 5000000 requests
+
+
+Server Software:        nginx/1.19.2
+Server Hostname:        172.17.1.4
+Server Port:            80
+
+Document Path:          /
+Document Length:        612 bytes
+
+Concurrency Level:      1000
+Time taken for tests:   678.762 seconds
+Complete requests:      5000000
+Failed requests:        0
+Total transferred:      4225000000 bytes
+HTML transferred:       3060000000 bytes
+Requests per second:    7366.35 [#/sec] (mean)
+Time per request:       135.752 [ms] (mean)
+Time per request:       0.136 [ms] (mean, across all concurrent requests)
+Transfer rate:          6078.68 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        4   69  86.6     63    3139
+Processing:     8   67  33.1     65    2275
+Waiting:        8   67  33.1     65    2275
+Total:         20  136  93.8    129    3441
+
+Percentage of the requests served within a certain time (ms)
+  50%    129
+  66%    133
+  75%    135
+  80%    137
+  90%    143
+  95%    153
+  98%    185
+  99%    417
+ 100%   3441 (longest request)
